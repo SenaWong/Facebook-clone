@@ -9,4 +9,7 @@ helpers do
 		!current_user.nil?
 	end
 	
+	def guest
+		"Guest"
+	end
 end

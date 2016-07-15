@@ -1,5 +1,58 @@
-<h1>Welcome User<h1>
-<p>To Be updated</p>
+<h1>Welcome to Phasebuk!<h1>
+	<h5>You are currently surfting as <%= "#{@surfer.name}" %></h5>
 <form method=post action=/logout>
 	<input type=submit value="Log Out">
 </form>
+
+<form method=post action=/status>
+	<input style="height: 50px; width: 500px;" type=text placeholder="Post your status here!" name="content"><br>
+	<input type=submit value="Post Status"><br>
+</form>
+
+
+
+<p> <%= @msg if @msg %></p><br>
+
+<p> Name : <%= "#{@user.name}" %> </p>
+<p> Email : <%= "#{@user.user_email}" %></p>
+
+<table>
+	<tr>
+  		<th><p>Status Updates!</p><br></th>
+
+  	<% @statuses.each do |s| %>
+
+  	</tr>
+
+ <tr>
+	  <td><%= s.content%></td>
+	
+  <% if @surfer.id == @user.id %>
+
+ 	<td>
+  		<form method=post action="/status/<%= s.id %>">
+  			<input type=hidden name=_method value="delete">
+  			<input type=submit value="Delete">
+  		</form>
+	</td>
+
+ 	<td>
+ 		<form action="/status/<%=s.id%>/edit">
+    		<input type="submit" value="Edit">
+		</form>
+  	</td>
+</tr>
+
+  <%end%>
+  <%end%>
+ </table> 
+
+  
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+<h1>Welcome to Phasebuk!<h1>
+	<h5>You are currently surfting as <%= "#{@surfer.name}" %></h5>
+<form method=post action=/logout>
+	<input type=submit value="Log Out">
+</form>
+
+<form method=post action="/status/<%=@to_edit%>">
+	<input style="height: 50px; width: 500px;" type=text placeholder="Edit status" name="content">
+  	<input type=hidden name=_method value="put">
+  	<input type=submit value="Submit">
+</form>
+
+
+
+<p> <%= @msg if @msg %></p><br>
